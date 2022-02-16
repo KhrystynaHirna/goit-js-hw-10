@@ -2,7 +2,8 @@ import './css/styles.css';
 import debounce from 'lodash/debounce';
 import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import countriesListEl from './countries_list.hbs'
+import countriesListEl from './countries_list.hbs';
+import countriesInfoEl from './countries_info.hbs';
 
 const input = document.querySelector('input#search-box');
 const countryList = document.querySelector('country-list');
@@ -56,9 +57,12 @@ function setCountries(countryName) {
                 return;
             }
             if (amount >= 2 && amount <= 10) {
-                renderCountries(data);
+                renderCountriesList(data);
+            } else {
+                renderCountriesInfo(data);
             }
-    })
+        })
+        .catch(fetchError(error));
 }
 
 function clearInput() {
@@ -67,6 +71,14 @@ function clearInput() {
 }
 
 
-function renderCountries(data) {
+function renderCountriesList(data) {
     countryList.insertAdjacentHTML('beforeend', countriesListEl(data));
+}
+function renderCountriesInfo(data) {
+    countryList.insertAdjacentHTML('beforeend', countriesInfoEl(data));
+}
+function fetchError(error) {
+    if (countryName !== "") {
+        Notiflix.Notify.failure("Oops, there is no country with that name");
+    }
 }
