@@ -18,3 +18,15 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+.list {
+  list-style: none;
+}
+.item {
+ color: rgb(9, 9, 29);
+ font-weight: 500;
+}
+.value {
+ font-style: italic;
+ color: darkslategrey;
+}
+

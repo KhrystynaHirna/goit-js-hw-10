@@ -1,11 +1,9 @@
 {{#each this}}
-<article class="article">
-    <div class="card">
+    <div>
         <img src={{flags.svg}} alt={{name.common}} width="100" height="80" />
-        <h2 class="title">{{name.official}}</h2>
+        <h2>{{name.official}}</h2>
     </div>
     <p class="item">Capital: <span class="value">{{capital}}</span></p>
     <p class="item">Population: <span class="value">{{population}}</span></p>
     <p class="item">Languages: <span class="value">{{#each languages}}{{#if @last}}{{this}}{{else}}{{this}},{{/if}}{{/each}}</span></p>
-</article>
 {{/each}}
