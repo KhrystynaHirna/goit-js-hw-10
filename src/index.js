@@ -2,6 +2,7 @@ import './css/styles.css';
 import debounce from 'lodash/debounce';
 import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import countriesListEl from './countries_list.hbs'
 
 const input = document.querySelector('input#search-box');
 const countryList = document.querySelector('country-list');
@@ -67,5 +68,5 @@ function clearInput() {
 
 
 function renderCountries(data) {
-    countryList.insertAdjacentHTML('beforeend', countriesList(data));
+    countryList.insertAdjacentHTML('beforeend', countriesListEl(data));
 }
